@@ -14,7 +14,7 @@ int custom_get_line(char **line, size_t *len, FILE *file);
 /**
  * empty - checks if line only contains delimiters.
  * @line: pointer to the line.
- * @delims: string with delimiter characters.
+ * @delim: string with delimiter characters.
  * Return: 1 (delimiters), else 0.
  */
 int empty(char *line, char *delim)
