@@ -13,6 +13,7 @@ int execute(char **token, stack_t **stack, unsigned int num)
 
 instruction_t op[] = {
 {"pall", pall},
+{"pint", op_pint},
 {"null", NULL}
 };
 		for (i = 0; op[i].opcode != NULL; i++)
