@@ -18,6 +18,10 @@ instruction_t op[] = {
 {"swap", op_swap},
 {"add", op_add},
 {"sub", op_sub},
+{"mod", op_mod},
+{"pchar", op_pchar},
+{"pstr", op_pstr},
+{"rotl", op_rotl},
 {"null", NULL}
 };
 		for (i = 0; op[i].opcode != NULL; i++)
