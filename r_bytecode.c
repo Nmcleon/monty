@@ -7,7 +7,21 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
+/*
+ * exec - execute command
+ * @token: pointer to command.
+ * @stack: pointer to the stack struct
+ * @num:  number of the line.
+ * Return: token
+ */
 int exec(char **token, stack_t **stack, unsigned int num);
+/**
+ * get_line - checks for line.
+ * @line: pointer to the line.
+ * @len: pointer to length.
+ * @file: file being checked
+ * Return: line.
+ */
 int get_line(char **line, size_t *len, FILE *file);
 
 /**
