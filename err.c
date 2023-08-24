@@ -8,10 +8,12 @@
  * Return: EXIT_FAILURE.
  */
 
-int error_1(void)
+int error_1(int i)
 {
-    fprintf(stderr, "Error: malloc failed\n");
-    return (EXIT_FAILURE);
+	char *error[2] = {"Error: malloc failed", "USAGE: monty file"};
+
+	fprintf(stderr, "%s\n", error[i]);
+	return (EXIT_FAILURE);
 }
 
 /**
