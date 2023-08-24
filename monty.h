@@ -36,7 +36,7 @@ int empty(char *line, char *delim);
 void free_s(stack_t **s);
 char **my_token(char *c, char *delim);
 int bytecode_run(FILE *file);
-int exec(char **token, stack_t **stack, unsigned int num);
+int execute(char **token, stack_t **stack, unsigned int num);
 int get_line(char **line, size_t *len, FILE *file);
 
 /**
