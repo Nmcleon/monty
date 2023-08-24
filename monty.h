@@ -8,12 +8,6 @@
 #include <string.h>
 #include <sys/stat.h>
 
-/*main functions*/
-int op_push(stack_t **stack, char **token, unsigned int num);
-void pall(stack_t **stack, unsigned int num);
-int exec(char **token, stack_t **stack, unsigned int num);
-
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -43,6 +37,11 @@ typedef struct instruction_s
     char *opcode;
     void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/*main functions*/
+int op_push(stack_t **stack, char **token, unsigned int num);
+void pall(stack_t **stack, unsigned int num);
+int exec(char **token, stack_t **stack, unsigned int num);
 
 /**
  * bytecode_run - runs  bytecode script.
