@@ -16,7 +16,7 @@
  * Return: token
  */
 int execute(char **token, stack_t **stack, unsigned int num);
-int get_line(char **line, size_t *len, FILE *file);
+int getline(char **line, size_t *len, FILE *file);
 
 /**
  * empty - checks if line only contains delimiters.
