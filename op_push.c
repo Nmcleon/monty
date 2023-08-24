@@ -41,7 +41,7 @@ int op_push(stack_t **stack, char **token, unsigned int num)
 	
 	if ((*stack) != NULL)
 	{
-		(*stack)->prev = new;
+		(*stack)->prev = n_stack;
 		n_stack->next = *stack;
 	}
 	else
