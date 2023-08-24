@@ -13,7 +13,7 @@ int execute(char **token, stack_t **stack, unsigned int num)
 
     instruction_t op[] = {
         {"pall", monty_pall},
-        {"pint", monty_pint},
+       /*{"pint", monty_pint},
         {"pop", monty_pop},
         {"swap", monty_swap},
         {"add", monty_add},
@@ -24,7 +24,7 @@ int execute(char **token, stack_t **stack, unsigned int num)
         {"pchar", monty_pchar},
         {"pstr", monty_pstr},
         {"rotl", monty_rotl},
-        {"rotr", monty_rotr},
+        {"rotr", monty_rotr},*/
         {"null", NULL}
     };
 
