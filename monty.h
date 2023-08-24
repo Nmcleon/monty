@@ -79,6 +79,48 @@ int bytecode_run(FILE *file)
 	return (status);
 }
 
+**
+ * my_token - split the line.
+ * @line: pointer to bytecode line.
+ * @delim: array (5 delimiters " \n\t\a\b".)
+ * Return: pointer to token.
+ */
+char **my_token(char *c, char *delim)
+{
+	char *tokens = NULL, **token = NULL;
+	size_t bufsize = 0;
+	int i = 0;
+
+	if (c == NULL || !*c)
+		return (NULL);
+
+	bufsize = strlen(c);
+	if (bufsize == 0)
+		return (NULL);
+	token = malloc(bufsize * sizeof(char *));
+	if (token == NULL)
+	{
+		free(c);
+		free(token);
+		exit(error_1(0));
+	}
+	tokens = strtok(c, delim);
+	if (tokens == NULL)
+	{
+		free(token);
+		free(c);
+		return (NULL);
+	}
+	while (tokens != NULL)
+	{
+		token[i] = tokens;
+		i++;
+		tokens = strtok(NULL, delim);
+	}
+	token[i] = '\0';
+	return (token);
+}
+
 /**
  * free_s - frees memory allocated to stack.
  * @s: doubly linked list of stack.
