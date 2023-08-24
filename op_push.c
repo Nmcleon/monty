@@ -14,7 +14,7 @@ int op_push(stack_t **stack, char **token, unsigned int num)
 	int i = 0;
 
 	if (token[1] == NULL)
-		return (errors(0, num));
+		return (error(0, num));
 		
 	while (token[1][i])
 	{
@@ -40,6 +40,6 @@ int op_push(stack_t **stack, char **token, unsigned int num)
 		(*stack)->prev = new;
 	new->next = *stack;
 	new->prev = NULL;
-	*stack = new;
+	*stack = n_stack;
 	return (EXIT_SUCCESS);
 }
