@@ -33,6 +33,7 @@ void op_pop(stack_t **stack, unsigned int number);
 void op_swap(stack_t **stack, unsigned int op_number);
 void op_add(stack_t **stack, unsigned int number);
 void op_sub(stack_t **stack, unsigned int number);
+void op_mod(stack_t **stack, unsigned int number);
 void pall(stack_t **stack, unsigned int num);
 int error_1(int i);
 int error_2(const char *c);
