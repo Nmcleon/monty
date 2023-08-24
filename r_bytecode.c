@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <unistd.h>
 
 int exec(char **token, stack_t **stack, unsigned int num);
 int get_line(char **line, size_t *len, FILE *file);
