@@ -178,7 +178,6 @@ int bytecode_run(FILE *file)
 }
 
 /*error functions*/
-int error_1(int i);
 int error_2(const char *c);
 int error(int i, unsigned int num);
 void read_error(const char *file);
