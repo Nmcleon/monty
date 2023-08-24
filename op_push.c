@@ -2,6 +2,7 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+
 /**
  * op_push - Push element to stack.
  * @stack: pointer to the stack
@@ -36,10 +37,18 @@ int op_push(stack_t **stack, char **token, unsigned int num)
 		return (error_1(0));
 
 	n_stack->n = atoi(token[1]);
+	n_stack->prev = NULL;
+	
 	if ((*stack) != NULL)
+	{
 		(*stack)->prev = new;
-	new->next = *stack;
-	new->prev = NULL;
+		n_stack->next = *stack;
+	}
+	else
+	{
+		n_stack->next = NULL;
+	}
+	
 	*stack = n_stack;
 	return (EXIT_SUCCESS);
 }
