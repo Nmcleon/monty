@@ -24,6 +24,15 @@ typedef struct stack_s
     struct stack_s *next;
 } stack_t;
 
+/*main functions*/
+int op_push(stack_t **stack, char **token, unsigned int num);
+void pall(stack_t **stack, unsigned int num);
+int exec(char **token, stack_t **stack, unsigned int num);
+int error_1(void);
+int error_2(const char *c);
+void read_error(const char *file);
+int error(int i, unsigned int num);
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -38,10 +47,6 @@ typedef struct instruction_s
     void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/*main functions*/
-int op_push(stack_t **stack, char **token, unsigned int num);
-void pall(stack_t **stack, unsigned int num);
-int exec(char **token, stack_t **stack, unsigned int num);
 
 /**
  * bytecode_run - runs  bytecode script.
