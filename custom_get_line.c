@@ -12,7 +12,7 @@ int custom_get_line(char **line, size_t *len, FILE *file)
     ssize_t read = getline(line, len, file);
     if (read == -1)
     {
-        if (feof(file)) // End of file
+        if (feof(file))
         {
             return (-1);
         }
