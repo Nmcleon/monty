@@ -1,3 +1,4 @@
+#define  _GNU_SOURCE
 #include "monty.h"
 #include <stddef.h>
 #include <stdio.h>
@@ -15,13 +16,6 @@
  * Return: token
  */
 int execute(char **token, stack_t **stack, unsigned int num);
-/**
- * get_line - checks for line.
- * @line: pointer to the line.
- * @len: pointer to length.
- * @file: file being checked
- * Return: line.
- */
 int get_line(char **line, size_t *len, FILE *file);
 
 /**
