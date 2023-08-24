@@ -12,7 +12,7 @@ void pint(stack_t **stack, unsigned int number)
 
 	if (!temp_s)
 	{
-		f_errors(1, number);
+		ferrors(1, number);
 		exit(EXIT_FAILURE);
 	}
 
