@@ -27,12 +27,10 @@ typedef struct stack_s
 /*main functions*/
 int op_push(stack_t **stack, char **token, unsigned int num);
 void pall(stack_t **stack, unsigned int num);
-int exec(char **token, stack_t **stack, unsigned int num);
 int error_1(int i);
 int error_2(const char *c);
 void read_error(const char *file);
 int error(int i, unsigned int num);
-int get_line(char **line, size_t *len, FILE *file);
 int empty(char *line, char *delim);
 void free_s(stack_t **s);
 char **my_token(char *c, char *delim);
