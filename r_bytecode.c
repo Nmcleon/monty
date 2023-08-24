@@ -8,13 +8,13 @@
 #include <unistd.h>
 
 /*
- * exec - execute command
+ * execute - execute command
  * @token: pointer to command.
  * @stack: pointer to the stack struct
  * @num:  number of the line.
  * Return: token
  */
-int exec(char **token, stack_t **stack, unsigned int num);
+int execute(char **token, stack_t **stack, unsigned int num);
 /**
  * get_line - checks for line.
  * @line: pointer to the line.
@@ -138,7 +138,7 @@ int bytecode_run(FILE *file)
 		else if (strcmp(token[0], "push") == 0 && mode == 1)
 			status = op_push(&stack, token, num);
 		else
-			status = exec(token, &stack, num);
+			status = execute(token, &stack, num);
 		free(token);
 		if (status == EXIT_FAILURE)
 			break;
