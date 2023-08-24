@@ -32,6 +32,95 @@ int error_1(void);
 int error_2(const char *c);
 void read_error(const char *file);
 int error(int i, unsigned int num);
+int get_line(char **line, size_t *len, FILE *file);
+int empty(char *line, char *delim);
+void free_s(stack_t **s);
+char **my_token(char *c, char *delim);
+
+/**
+ * empty - checks if line only contains delimiters.
+ * @line: pointer to the line.
+ * @delims: string with delimiter characters.
+ * Return: 1 (delimiters), else 0.
+ */
+int empty(char *line, char *delim)
+{
+	int i, j;
+
+	for (i = 0; line[i]; i++)
+	{
+		for (j = 0; delim[j]; j++)
+		{
+			if (line[i] == delim[j])
+				break;
+		}
+		if (delim[j] == '\0')
+			return (0);
+	}
+
+	return (1);
+}
+
+/**
+ * free_s - frees memory allocated to stack.
+ * @s: doubly linked list of stack.
+ * Return: Nothing.
+ */
+
+void free_s(stack_t **s)
+{
+	stack_t *t = *s;
+
+	while (*s)
+	{
+		t = (*s)->next;
+		free(*s);
+		*s = t;
+	}
+}
+
+/**
+ * my_token - split the line.
+ * @line: pointer to bytecode line.
+ * @delim: array (5 delimiters " \n\t\a\b".)
+ * Return: pointer to token.
+ */
+char **my_token(char *c, char *delim)
+{
+	char *tokens = NULL, **token = NULL;
+	size_t bufsize = 0;
+	int i = 0;
+
+	if (c == NULL || !*c)
+		return (NULL);
+
+	bufsize = strlen(c);
+	if (bufsize == 0)
+		return (NULL);
+	token = malloc(bufsize * sizeof(char *));
+	if (token == NULL)
+	{
+		free(c);
+		free(token);
+		exit(error_1(0));
+	}
+	tokens = strtok(c, delim);
+	if (tokens == NULL)
+	{
+		free(token);
+		free(c);
+		return (NULL);
+	}
+	while (tokens != NULL)
+	{
+		token[i] = tokens;
+		i++;
+		tokens = strtok(NULL, delim);
+	}
+	token[i] = '\0';
+	return (token);
+}
+
 
 /**
  * struct instruction_s - opcode and its function
@@ -87,94 +176,6 @@ int bytecode_run(FILE *file)
 	free(line);
 	return (status);
 }
-
-**
- * my_token - split the line.
- * @line: pointer to bytecode line.
- * @delim: array (5 delimiters " \n\t\a\b".)
- * Return: pointer to token.
- */
-char **my_token(char *c, char *delim)
-{
-	char *tokens = NULL, **token = NULL;
-	size_t bufsize = 0;
-	int i = 0;
-
-	if (c == NULL || !*c)
-		return (NULL);
-
-	bufsize = strlen(c);
-	if (bufsize == 0)
-		return (NULL);
-	token = malloc(bufsize * sizeof(char *));
-	if (token == NULL)
-	{
-		free(c);
-		free(token);
-		exit(error_1(0));
-	}
-	tokens = strtok(c, delim);
-	if (tokens == NULL)
-	{
-		free(token);
-		free(c);
-		return (NULL);
-	}
-	while (tokens != NULL)
-	{
-		token[i] = tokens;
-		i++;
-		tokens = strtok(NULL, delim);
-	}
-	token[i] = '\0';
-	return (token);
-}
-
-/**
- * free_s - frees memory allocated to stack.
- * @s: doubly linked list of stack.
- * Return: Nothing.
- */
-
-void free_s(stack_t **s)
-{
-	stack_t *t = *s;
-
-	while (*s)
-	{
-		t = (*s)->next;
-		free(*s);
-		*s = t;
-	}
-}
-/**
- * empty - checks if line only contains delimiters.
- * @line: pointer to the line.
- * @delims: string with delimiter characters.
- * Return: 1 (delimiters), else 0.
- */
-int empty(char *line, char *delim)
-{
-	int i, j;
-
-	for (i = 0; line[i]; i++)
-	{
-		for (j = 0; delim[j]; j++)
-		{
-			if (line[i] == delim[j])
-				break;
-		}
-		if (delim[j] == '\0')
-			return (0);
-	}
-
-	return (1);
-}
-
-/* stack_is_empty function. If the stack is empty, don’t print anything*/
-int stack_is_empty(stack_t *stack);
-
-
 
 /*error functions*/
 int error_1(int i);
