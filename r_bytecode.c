@@ -9,7 +9,7 @@
  * Return: token
  */
 int execute(char **token, stack_t **stack, unsigned int num);
-int getline(char **line, size_t *len, FILE *file);
+int custom_get_line(char **line, size_t *len, FILE *file);
 
 /**
  * empty - checks if line only contains delimiters.
@@ -107,7 +107,7 @@ int bytecode_run(FILE *file)
 	size_t len = 0, mode = 1;
 	unsigned int num = 0, status = EXIT_SUCCESS;
 
-	while (getline(&line, &len, file) != -1)
+	while (custom_get_line(&line, &len, file) != -1)
 	{
 		num++;
 		if (empty(line, delim))
