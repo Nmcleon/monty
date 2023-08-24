@@ -28,7 +28,7 @@ typedef struct stack_s
 int op_push(stack_t **stack, char **token, unsigned int num);
 void pall(stack_t **stack, unsigned int num);
 int exec(char **token, stack_t **stack, unsigned int num);
-int error_1(void);
+int error_1(int i);
 int error_2(const char *c);
 void read_error(const char *file);
 int error(int i, unsigned int num);
@@ -85,30 +85,30 @@ void free_s(stack_t **s)
  * @delim: array (5 delimiters " \n\t\a\b".)
  * Return: pointer to token.
  */
-char **my_token(char *c, char *delim)
+char **my_token(char *line, char *delim)
 {
 	char *tokens = NULL, **token = NULL;
 	size_t bufsize = 0;
 	int i = 0;
 
-	if (c == NULL || !*c)
+	if (line == NULL || !*line)
 		return (NULL);
 
-	bufsize = strlen(c);
+	bufsize = strlen(line);
 	if (bufsize == 0)
 		return (NULL);
 	token = malloc(bufsize * sizeof(char *));
 	if (token == NULL)
 	{
-		free(c);
+		free(line);
 		free(token);
-		exit(error_1(0));
+		error_1(0);
 	}
-	tokens = strtok(c, delim);
+	tokens = strtok(line, delim);
 	if (tokens == NULL)
 	{
 		free(token);
-		free(c);
+		free(line);
 		return (NULL);
 	}
 	while (tokens != NULL)
@@ -154,7 +154,7 @@ int bytecode_run(FILE *file)
 		num++;
 		if (empty(line, delim))
 			continue;
-		token = my_token(c, delim);
+		token = my_token(line, delim);
 		if (token[0][0] == '#' || strcmp(token[0], "nop") == 0)
 		{
 			free(token);
