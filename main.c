@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
-#includu <unistd.h>
+#include <unistd.h>
 
 /**
   * main - The entry point of the program
