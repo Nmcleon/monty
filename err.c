@@ -1,4 +1,7 @@
 #include "monty.h"
+#include <stdio.h>
+#include <stdlib.h>
+
 /**
  * error_1 - prints usage error.
  * @i: error: 0 (failed) 1 (usage).
