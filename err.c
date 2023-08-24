@@ -32,7 +32,7 @@ return (EXIT_FAILURE);
 */
 int error(int i, unsigned int num)
 {
-char *errors[] = {"usage:
+char *errors[] = {"usage: push integer", "can\t print, stack empty",
 	     "can\'t pop an empty stack", "can\'t swap, stack too short",
 	     "can\'t add, stack too short", "can\'t sub, stack too short",
 	     "can\'t div, stack too short", "division by zero",
