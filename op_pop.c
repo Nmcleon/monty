@@ -10,7 +10,7 @@ void op_pop(stack_t **stack, unsigned int number)
 	
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L%i: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%i: can't pop an empty stack\n", number);
 		exit(EXIT_FAILURE);
 	}
 
