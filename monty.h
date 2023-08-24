@@ -8,6 +8,11 @@
 #include <string.h>
 #include <sys/stat.h>
 
+/*main functions*/
+int op_push(stack_t **stack, char **token, unsigned int num);
+void pall(stack_t **stack, unsigned int num);
+int exec(char **token, stack_t **stack, unsigned int num);
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -74,7 +79,7 @@ int bytecode_run(FILE *file)
 		if (status == EXIT_FAILURE)
 			break;
 	}
-	free_stack(&stack);
+	free_s(&stack);
 	free(line);
 	return (status);
 }
@@ -138,13 +143,34 @@ void free_s(stack_t **s)
 		*s = t;
 	}
 }
+/**
+ * empty - checks if line only contains delimiters.
+ * @line: pointer to the line.
+ * @delims: string with delimiter characters.
+ * Return: 1 (delimiters), else 0.
+ */
+int empty(char *line, char *delim)
+{
+	int i, j;
+
+	for (i = 0; line[i]; i++)
+	{
+		for (j = 0; delim[j]; j++)
+		{
+			if (line[i] == delim[j])
+				break;
+		}
+		if (delim[j] == '\0')
+			return (0);
+	}
+
+	return (1);
+}
+
 /* stack_is_empty function. If the stack is empty, don’t print anything*/
 int stack_is_empty(stack_t *stack);
 
-/*main functions*/
-int op_push(stack_t **stack, char **token, unsigned int num);
-void pall(stack_t **stack, unsigned int num);
-int exec(char **token, stack_t **stack, unsigned int num);
+
 
 /*error functions*/
 int error_1(int i);
