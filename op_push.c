@@ -1,6 +1,6 @@
 #include "monty.h"
 #include <stddef.h>
-#include <stdio.h>>
+#include <stdio.h>
 #include <stdlib.h>
 /**
  * op_push - Push element to stack.
@@ -8,7 +8,7 @@
  * @num: number in the Monty byte file.
  * Return: EXIT_SUCCESS
  */
-int op_push(stack_t **stack, char **token, unsigned int num))
+int op_push(stack_t **stack, char **token, unsigned int num)
 {
     stack_t *n_stack;
 	int i = 0;
