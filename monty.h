@@ -30,6 +30,7 @@ typedef struct stack_s
 int op_push(stack_t **stack, char **token, unsigned int num);
 void op_pint(stack_t **stack, unsigned int number);
 void op_pop(stack_t **stack, unsigned int number);
+void op_swap(stack_t **stack, unsigned int op_number);
 void pall(stack_t **stack, unsigned int num);
 int error_1(int i);
 int error_2(const char *c);
