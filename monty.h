@@ -38,7 +38,7 @@ void free_s(stack_t **s);
 char **my_token(char *c, char *delim);
 int bytecode_run(FILE *file);
 int execute(char **token, stack_t **stack, unsigned int num);
-int getline(char **line, size_t *len, FILE *file);
+int get_line(char **line, size_t *len, FILE *file);
 
 /**
  * struct instruction_s - opcode and its function
