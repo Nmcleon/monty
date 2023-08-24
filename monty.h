@@ -81,34 +81,34 @@ void free_s(stack_t **s)
 
 /**
  * my_token - split the line.
- * @line: pointer to bytecode line.
+ * @c: pointer to bytecode line.
  * @delim: array (5 delimiters " \n\t\a\b".)
  * Return: pointer to token.
  */
-char **my_token(char *line, char *delim)
+char **my_token(char *c, char *delim)
 {
 	char *tokens = NULL, **token = NULL;
 	size_t bufsize = 0;
 	int i = 0;
 
-	if (line == NULL || !*line)
+	if (c == NULL || !*c)
 		return (NULL);
 
-	bufsize = strlen(line);
+	bufsize = strlen(c);
 	if (bufsize == 0)
 		return (NULL);
 	token = malloc(bufsize * sizeof(char *));
 	if (token == NULL)
 	{
-		free(line);
+		free(c);
 		free(token);
 		error_1(0);
 	}
-	tokens = strtok(line, delim);
+	tokens = strtok(c, delim);
 	if (tokens == NULL)
 	{
 		free(token);
-		free(line);
+		free(c);
 		return (NULL);
 	}
 	while (tokens != NULL)
