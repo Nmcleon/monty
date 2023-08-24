@@ -15,6 +15,9 @@ instruction_t op[] = {
 {"pall", pall},
 {"pint", op_pint},
 {"pop", op_pop},
+{"swap", op_swap},
+{"add", op_add},
+{"sub", op_sub},
 {"null", NULL}
 };
 		for (i = 0; op[i].opcode != NULL; i++)
