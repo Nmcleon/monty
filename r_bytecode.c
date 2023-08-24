@@ -5,6 +5,10 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/stat.h>
+
+int exec(char **token, stack_t **stack, unsigned int num);
+int get_line(char **line, size_t *len, FILE *file);
+
 /**
  * empty - checks if line only contains delimiters.
  * @line: pointer to the line.
