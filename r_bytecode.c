@@ -1,11 +1,5 @@
-#define  _GNU_SOURCE
 #include "monty.h"
-#include <stddef.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/stat.h>
-#include <unistd.h>
+
 
 /*
  * execute - execute command
