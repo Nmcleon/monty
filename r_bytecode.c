@@ -1,3 +1,10 @@
+#include "monty.h"
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/stat.h>
 /**
  * empty - checks if line only contains delimiters.
  * @line: pointer to the line.
