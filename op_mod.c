@@ -26,5 +26,5 @@ void op_mod(stack_t **stack, unsigned int number)
 	}
 	temp = (*stack)->next->n % (*stack)->n;
 	(*stack)->next->n = temp;
-	monty_pop(stack, number);
+	op_pop(stack, number);
 }
