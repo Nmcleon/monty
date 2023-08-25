@@ -19,6 +19,7 @@ instruction_t op[] = {
 {"add", op_add},
 {"sub", op_sub},
 {"mod", op_mod},
+{"div", op_div},
 {"pchar", op_pchar},
 {"pstr", op_pstr},
 {"rotl", op_rotl},
