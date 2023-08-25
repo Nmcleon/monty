@@ -37,6 +37,7 @@ void op_mod(stack_t **stack, unsigned int number);
 void op_pchar(stack_t **stack, unsigned int number);
 void op_pstr(stack_t **stack, unsigned int number);
 void op_rotl(stack_t **stack, unsigned int number);
+void op_div(stack_t **stack, unsigned int num);
 void pall(stack_t **stack, unsigned int num);
 int error_1(int i);
 int error_2(const char *c);
