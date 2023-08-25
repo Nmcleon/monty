@@ -9,7 +9,7 @@
  */
 void op_pchar(stack_t **stack, unsigned int number)
 {
-	int number = 0;
+	int i = 0;
 	stack_t *tmp = *stack;
 
 	if (!tmp)
@@ -17,11 +17,11 @@ void op_pchar(stack_t **stack, unsigned int number)
 		fprintf(stderr, "L%i: can't pchar, stack empty\n", number);
 		exit(EXIT_FAILURE);
 	}
-	number = tmp->n;
-	if (number < 0 || number > 127)
+	i = tmp->n;
+	if (i < 0 || i > 127)
 	{
 		fprintf(stderr, "L%i: can't pchar, value out of range\n", number);
 		exit(EXIT_FAILURE);
 	}
-	printf("%c\n", tmp->n);
+	printf("%c\n", i->n);
 }
