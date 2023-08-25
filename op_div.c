@@ -24,5 +24,5 @@ void op_div(stack_t **stack, unsigned int num)
 	}
 	i = (*stack)->next->n / (*stack)->n;
 	(*stack)->next->n = i;
-	monty_pop(stack, num);
+	op_pop(stack, num);
 }
