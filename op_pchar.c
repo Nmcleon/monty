@@ -23,5 +23,5 @@ void op_pchar(stack_t **stack, unsigned int number)
 		fprintf(stderr, "L%i: can't pchar, value out of range\n", number);
 		exit(EXIT_FAILURE);
 	}
-	printf("%c\n", i->n);
+	printf("%c\n", i);
 }
